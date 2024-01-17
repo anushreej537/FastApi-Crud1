@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 from . models import *
-from .pydantic_models import Person
+from .pydantic_models import Person,Table,Del_data
 from passlib.context import CryptContext
 
 
@@ -30,3 +30,16 @@ async def ragistration(data:Person):
         user_obj = await User.create(name=data.name,email=data.email,phone=phone_number,
                                      password=get_password_hash(data.password))
         return user_obj
+    
+
+@app.post('/table')
+async def table_data(data:Table):
+    user_data = await User.filter(id=data.id)
+    return {'user_data':user_data}
+
+
+@app.delete('/deldata')
+async def delete_data(data:Del_data):
+    await User.get(id=data.id).delete()
+    return {"messsage" : 'user delete successfully'}
+
