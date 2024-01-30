@@ -9,5 +9,12 @@ class User(Model):
     password = fields.CharField(250)
 
 
-Tortoise.init_models(['user.models'],'models')
     
+class Person(Model):
+    id = fields.IntField(pk = True)
+    name = fields.CharField(200)
+    email = fields.CharField(200)
+    phone = fields.IntField()
+    password = fields.CharField(250)
+
+Tortoise.init_models(['user.models'],'models')

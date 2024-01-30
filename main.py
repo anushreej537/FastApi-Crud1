@@ -1,15 +1,14 @@
 from fastapi import FastAPI
 from tortoise.contrib.fastapi import register_tortoise
 from user import api as UserAPI
-
+from user import router as UserRouter
 
 app = FastAPI()
 
 app.include_router(UserAPI.app)
+app.include_router(UserRouter.router)
 
-@app.get('/')
-async def getdata():
-    return ('hello world')
+
 
 
 register_tortoise(

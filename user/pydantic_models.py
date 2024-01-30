@@ -1,7 +1,15 @@
 from pydantic import BaseModel
 
+class LoginUser(BaseModel):
+    email:str
+    password:str
 
-class Person(BaseModel):
+class Token(BaseModel):
+    access_token:str
+    token_type:str = 'bearer'
+
+
+class Person_data(BaseModel):
     name:str
     email:str
     phone:int
@@ -12,3 +20,9 @@ class Table(BaseModel):
     
 class Del_data(BaseModel):
     id : int
+
+class updateuser(BaseModel):
+    id:int
+    name:str
+    email:str
+    phone:int
