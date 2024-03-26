@@ -8,7 +8,6 @@ class Token(BaseModel):
     access_token:str
     token_type:str = 'bearer'
 
-
 class Person_data(BaseModel):
     name:str
     email:str

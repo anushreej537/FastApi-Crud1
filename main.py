@@ -9,8 +9,6 @@ app.include_router(UserAPI.app)
 app.include_router(UserRouter.router)
 
 
-
-
 register_tortoise(
     app,
     db_url="postgres://postgres:root@127.0.0.1/fastapi",

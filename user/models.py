@@ -7,8 +7,6 @@ class User(Model):
     email = fields.CharField(200)
     phone = fields.IntField()
     password = fields.CharField(250)
-
-
     
 class Person(Model):
     id = fields.IntField(pk = True)
